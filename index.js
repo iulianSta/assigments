@@ -70,3 +70,26 @@ const isTrueOrNot = (obj) => {
 
 console.log(isTrueOrNot({}));
 console.log(isTrueOrNot({a: 1}));
+
+// Ex. 4
+/* > Counting Letters. 
+Create a function that counts the number of occurrences of each letter in a string. 
+Return an object with key pair values of letters and the number of occurrences for each letter.
+
+Example:
+
+countLetters("tree") ➞ {t: 1, r: 1, e: 2} */
+
+const countLetters = (str) => {
+    return str
+    .toLowerCase()
+    .split("")
+    .reduce((acc,cur) => 
+    {acc[cur] = acc[cur] 
+        ? acc[cur] + 1 
+        : 1;
+    return acc}, {});
+
+}
+
+console.log(countLetters("tree"));
