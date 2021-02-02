@@ -15,15 +15,16 @@ Examples:
 5, { min: 5, max: 5 }) ➞ true */
 
 const check = (num, obj) => {
-    let result = "";
-    for (let prop in obj) {
-        if ( num >= obj.min && num <= obj.max) {
-            result = `true`;
-        } else {
-            result = `false`;
-        }
-    }
-    return result;
+    // let result = "";
+    // for (let prop in obj) {
+    //     if ( num >= obj.min && num <= obj.max) {
+    //         result = `true`;
+    //     } else {
+    //         result = `false`;
+    //     }
+    // }
+    // return result;
+    return num >= obj.min && num <= obj.max;
 }
 
 console.log(check(4, { min: 0, max: 5 }));
@@ -45,10 +46,25 @@ Example:
 { tile: "E", score: 1 } 
 ]
 
-
 The player's maximum score: 1 + 5 + 10 + 8 + 2 + 1 + 1 = 28 */
 
+const scrabble = [ { tile: "N", score: 1 }, 
+{ tile: "K", score: 5 }, 
+{ tile: "Z", score: 10 }, 
+{ tile: "X", score: 8 }, 
+{ tile: "D", score: 2 }, 
+{ tile: "A", score: 1 }, 
+{ tile: "E", score: 1 } 
+]
 
+const sumOfScrabble = (arr) => {
+    let result = 0;
+    for (let i = 0; i < arr.length; i++) {
+        result += arr[i].score;
+    }
+    return result;
+} 
+console.log(sumOfScrabble(scrabble));
 
 // Ex. 3
 /* > Is it an empty object? 
@@ -61,11 +77,12 @@ Examples:
 {a: 1} ➞ false */
 
 const isTrueOrNot = (obj) => {
-    for(var key in obj) {
-        if(obj.hasOwnProperty(key))
-            return false;
-    }
-    return true;
+    // for(let key in obj) {
+    //     if(obj.hasOwnProperty(key))
+    //         return false;
+    // }
+    // return true;
+    return Object.keys(obj).length == 0;
 }
 
 console.log(isTrueOrNot({}));
@@ -156,7 +173,21 @@ const programming = {
 
 then return "Learning the programming languages: "JavaScript, Python, Ruby, Go" is rewarding and challenging. 
 
-Bonus: In a comment, explain what is printed if we console.log an object method without calling it and why. */
+Bonus: In a comment, explain what is printed if we cconst countLetters = (str) => {
+    return str
+    .toLowerCase()
+    .split("")
+    .reduce((acc,cur) => 
+    {acc[cur] = acc[cur] 
+        ? acc[cur] + 1 
+        : 1;
+    return acc
+    }, {});
+
+}
+
+console.log(countLetters("tree"));
+onsole.log an object method without calling it and why. */
 
 const programming = {
 
@@ -211,3 +242,50 @@ for (let prop in programming) {
   for (let prop in programming) {
     console.log(`${programming[prop]}`);
 }
+
+// - Create an object method where if the keys "isChallenging" and "isRewarding" have values of "true", 
+
+// then return "Learning the programming languages: "JavaScript, Python, Ruby, Go" is rewarding and challenging. 
+
+programming.print = function() {
+    if (this.isChallenging === true && this.isRewarding === true) {
+        console.log(`Learning the programming languages: ${this.languages}  are rewarding and challenging.`);
+    }
+}
+programming.print();
+
+// Bonus: In a comment, explain what is printed if we console.log an object method without calling it and why.
+
+console.log(Object.seal);   // Is printed [Function: seal]
+console.log(Object.seal()); // Is printed undefined, because i didn't assign any object
+
+//> Bonus:
+// Ex. 7
+//Make sure that any other code cannot delete or change properties of the object.
+
+Object.seal(programming);
+console.log(programming.difficulty);
+programming.force = 4;
+console.log(programming.force); // after i try to add  "force" after i seal the object, when i tried to console.log
+                               // is printed undefined, means "force" was not added to the object.
+delete programming.difficulty;  // I've tried to delete "dificulty", and was not deleted.
+console.log(programming.difficulty);
+
+
+// Ex.8
+// > Create a function that returns an object has following output.
+
+const countChar = (str) => {
+    return str
+    .split("")
+    .reduce((acc,cur) => 
+    {acc[cur] = acc[cur] 
+        ? acc[cur] + 1 
+        : 1;
+    return acc
+    }, {});
+
+}
+
+console.log(countChar("ABC"));
+console.log(countChar("QQQ"));
