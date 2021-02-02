@@ -198,3 +198,16 @@ const programming = {
   for (let prop in programming.languages) {
       console.log(`${prop}: ${programming.languages[prop]}`);
   }
+
+  // - Using a loop, console.log all of the keys in the programming object.
+
+
+for (let prop in programming) {
+      console.log(`${prop}`);
+  }
+
+  // - Using a loop, console.log all of the values in the programming object.
+
+  for (let prop in programming) {
+    console.log(`${programming[prop]}`);
+}
