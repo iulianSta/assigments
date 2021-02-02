@@ -120,3 +120,81 @@ const freeShipping = (obj) => {
 console.log(freeShipping({ "Sponge": 3.50, "Soap": 5.99 }));
 console.log(freeShipping({ "Surround Sound Equipment": 499.99 }));
 console.log(freeShipping({ "Wool": 13.99, "Knitting Needles": 15.50, "Bag": 13.99 }));
+
+// Ex. 6
+/* > Programming Object.
+
+const programming = {
+
+  languages: ["JavaScript", "Python", "Ruby"],
+  
+  isChallenging: true,
+  
+  isRewarding: true,
+  
+  difficulty: 8,
+  
+  jokes:
+  
+    "http://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke"
+};
+- Write the command to add the language "Go" to the end of the languages array.
+
+- Change the difficulty to the value of 7.
+
+- Using the delete keyword, write the command to remove the jokes key from the programming object.
+
+- Write a command to add a new key called isFun and a value of true to the programming object.
+
+- Using a loop, iterate through the languages array and console.log all of the languages.
+
+- Using a loop, console.log all of the keys in the programming object.
+
+- Using a loop, console.log all of the values in the programming object.
+
+- Create an object method where if the keys "isChallenging" and "isRewarding" have values of "true", 
+
+then return "Learning the programming languages: "JavaScript, Python, Ruby, Go" is rewarding and challenging. 
+
+Bonus: In a comment, explain what is printed if we console.log an object method without calling it and why. */
+
+const programming = {
+
+    languages: ["JavaScript", "Python", "Ruby"],
+    
+    isChallenging: true,
+    
+    isRewarding: true,
+    
+    difficulty: 8,
+    
+    jokes:
+    
+      "http://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke"
+  };
+
+  // - Write the command to add the language "Go" to the end of the languages array.
+
+  programming.languages[3] = "Go";
+  console.log(programming.languages);
+
+  // - Change the difficulty to the value of 7.
+
+  programming.difficulty = 7;
+  console.log(programming.difficulty);
+
+  // - Using the delete keyword, write the command to remove the jokes key from the programming object.
+
+  delete programming.jokes;
+  console.log(programming);
+
+  // - Write a command to add a new key called isFun and a value of true to the programming object.
+
+  programming.isFun = "true";
+  console.log(programming);
+
+  // - Using a loop, iterate through the languages array and console.log all of the languages.
+
+  for (let prop in programming.languages) {
+      console.log(`${prop}: ${programming.languages[prop]}`);
+  }
