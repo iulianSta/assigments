@@ -259,6 +259,7 @@ programming.print();
 console.log(Object.seal);   // Is printed [Function: seal]
 console.log(Object.seal()); // Is printed undefined, because i didn't assign any object
 
+
 //> Bonus:
 // Ex. 7
 //Make sure that any other code cannot delete or change properties of the object.
@@ -270,6 +271,9 @@ console.log(programming.force); // after i try to add  "force" after i seal the 
                                // is printed undefined, means "force" was not added to the object.
 delete programming.difficulty;  // I've tried to delete "dificulty", and was not deleted.
 console.log(programming.difficulty);
+
+Object.freeze(programming);    // I found this method and i think is better to use in this case because with freeze
+                               // is freezing the object, that means I cannot add, delete or chance the object properties.
 
 
 // Ex.8
